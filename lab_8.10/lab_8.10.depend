@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1518107517 source:d:\codes\lab_8.10\module.cpp
+	"module.h"
+
+1518107527 source:d:\codes\lab_8.10\main.cpp
+	"module.h"
+
+1518105855 d:\codes\lab_8.10\module.cpp
+	<fstream>
+	<windows.h>
+	<conio.h>
+	<string>
+
+1518107583 d:\codes\lab_8.10\module.h
+	<fstream>
+	<windows.h>
+	<conio.h>
+	<string>
+

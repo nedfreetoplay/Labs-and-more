@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1519873166 source:d:\codes\lab_8.3\module.cpp
+	"module.h"
+
+1519873208 d:\codes\lab_8.3\module.h
+	<fstream>
+	<windows.h>
+	<conio.h>
+	<string>
+
+1519873151 source:d:\codes\lab_8.3\main.cpp
+	"module.h"
+
