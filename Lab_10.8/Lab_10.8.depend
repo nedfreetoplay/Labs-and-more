@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1521459890 source:d:\codes\labs-and-more\lab_10.8\main.cpp
+	<cstdio>
+	<iostream>
+	<cstdlib>
+

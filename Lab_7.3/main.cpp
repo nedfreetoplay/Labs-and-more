@@ -19,14 +19,6 @@ int Write_int()
     return value;
 }
 
-int strSize(char* str)
-{
-    int i = 0;
-    while(str[i] != '\0')
-        i++;
-    return i;
-}
-
 char** FileRead(int &Size)
 {
     char** str = NULL;
@@ -75,66 +67,76 @@ char** FileRead(int &Size)
     return str;
 }
 
+int MyToLower( char r)
+{
+     switch (r)
+     {
+         case 'А': r = 'а'; break;
+         case 'Б': r = 'б'; break;
+         case 'В': r = 'в'; break;
+         case 'Г': r = 'г'; break;
+         case 'Д': r = 'д'; break;
+         case 'Е': r = 'е'; break;
+         case 'Ё': r = 'ё'; break;
+         case 'Ж': r = 'ж'; break;
+         case 'З': r = 'з'; break;
+         case 'И': r = 'и'; break;
+         case 'Й': r = 'й'; break;
+         case 'К': r = 'к'; break;
+         case 'Л': r = 'л'; break;
+         case 'М': r = 'м'; break;
+         case 'Н': r = 'н'; break;
+         case 'О': r = 'о'; break;
+         case 'П': r = 'п'; break;
+         case 'Р': r = 'р'; break;
+         case 'С': r = 'с'; break;
+         case 'Т': r = 'т'; break;
+         case 'У': r = 'у'; break;
+         case 'Ф': r = 'ф'; break;
+         case 'Х': r = 'х'; break;
+         case 'Ц': r = 'ц'; break;
+         case 'Ч': r = 'ч'; break;
+         case 'Ш': r = 'ш'; break;
+         case 'Щ': r = 'щ'; break;
+         case 'Ъ': r = 'ъ'; break;
+         case 'Ы': r = 'ы'; break;
+         case 'Ь': r = 'ь'; break;
+         case 'Э': r = 'э'; break;
+         case 'Ю': r = 'ю'; break;
+         case 'Я': r = 'я'; break;
+     }
+     return (r);
+}
+
 void Obrab(char** str, int Size)
 {
-    //Сортировка по алфавиту.
-    int* index1 = new int[Size];
-    int SizeZ = 0;
-    int* index2 = NULL;
+    char glasnie[]("аоуыэяёюие");
+    char soglasnie[]("бвгджзйклмнпрстфхцчшщ");
+    printf("Вывод:\nС заглавной:\n");
     for(int i = 0; i < Size; i++)
-        index1[i] = i;
-    for(int i = 1; i < Size; i++)
-        for(int j = 0; j < (Size-i); j++)
-            if(strlen(str[index1[j]]) > strlen(str[index1[j+1]]))
-            {
-                int cur = index1[j];
-                index1[j] = index1[j + 1];
-                index1[j + 1] = cur;
-            }
-    printf("CHP1\n");
-    //Слова, встречающиеся в тексте более 1 раза.
-    for(int i = 0; i < Size; i++)
-    {
-        bool chp = false;
-        for(int j = i; j < Size; j++)
-            if(str[i] == str[j])
-            {
-                printf("%s - chp\n", str[i]);
-                chp = true;
-            }
-
-        for(int j = 0; j < SizeZ; j++)
-            if(str[i] == str[j])
-                chp = false;
-        if(chp)
+        if(str[i][0] > 'А' && str[i][0] < 'Я')
         {
-            int* index2Copy = new int[SizeZ + 1];
-            for(int k = 0; k < SizeZ; k++)
-                index2Copy[k] = index2[k];
-            delete[] index2;
-
-            index2 = new int[SizeZ + 1];
-            for(int k = 0; k < SizeZ; k++)
-                index2[k] = index2Copy[k];
-            delete[] index2Copy;
-            index2[SizeZ] = i;
-            SizeZ++;
+            printf("%s ", str[i]);
+            break;
         }
-    }
-    //Вывод
-    printf("Пять самых коротких слов:\n");
-    for(int i = 0; i < 5; i++)
-    {
-        if(Size > i)
-            printf("%s\n", str[index1[i]]);
-    }
-    printf("Вывод 2:\n");
-    for(int i = 0; i < SizeZ; i++)
-    {
-        printf("%s\n", str[index2[i]]);
-    }
-    delete[] index1;
-    delete[] index2;
+
+    printf("\nС гласной:\n");
+    for(int i = 0; i < Size; i++)
+        for(int j = 0; j < 10; j++)
+            if(MyToLower(str[i][0]) == glasnie[j])
+            {
+                printf("%s ", str[i]);
+                break;
+            }
+
+    printf("\nС согласной:\n");
+    for(int i = 0; i < Size; i++)
+        for(int j = 0; j < 21; j++)
+            if(MyToLower(str[i][0]) == soglasnie[j])
+            {
+                printf("%s ", str[i]);
+                break;
+            }
     printf("\n");
 }
 
