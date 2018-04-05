@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1522407232 source:d:\codes\labs-and-more\lab_7.3\main.cpp
-	<stdio.h>
-	<windows.h>
-	<cctype>
-	<locale>
-

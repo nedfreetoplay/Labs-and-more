@@ -67,9 +67,9 @@ char** FileRead(int &Size)
     return str;
 }
 
-int MyToLower( char r)
+int MyToLower( char r) //Функция похожая на ToLower, только работает с русскими буквами. ToLower превращает большую букву в маленькую
 {
-     switch (r)
+     switch (r) //The switch, чтобы if'ы не писать каждый раз
      {
          case 'А': r = 'а'; break;
          case 'Б': r = 'б'; break;
@@ -110,29 +110,29 @@ int MyToLower( char r)
 
 void Obrab(char** str, int Size)
 {
-    char glasnie[]("аоуыэяёюие");
-    char soglasnie[]("бвгджзйклмнпрстфхцчшщ");
+    char glasnie[]("аоуыэяёюие"); //Используется для определения гласных букв
+    char soglasnie[]("бвгджзйклмнпрстфхцчшщ"); //Используется для определения согласных букв
     printf("Вывод:\nС заглавной:\n");
-    for(int i = 0; i < Size; i++)
-        if(str[i][0] > 'А' && str[i][0] < 'Я')
+    for(int i = 0; i < Size; i++) //Цикл для перебора всех элементов массива
+        if(str[i][0] > 'А' && str[i][0] < 'Я') //Проверка первой буквы слова на наличие букв большого символа буквы(Масло)
         {
             printf("%s ", str[i]);
             break;
         }
 
     printf("\nС гласной:\n");
-    for(int i = 0; i < Size; i++)
-        for(int j = 0; j < 10; j++)
-            if(MyToLower(str[i][0]) == glasnie[j])
+    for(int i = 0; i < Size; i++) //Цикл для перебора всех элементов массива
+        for(int j = 0; j < 10; j++) //Перебор всех гласных букв
+            if(MyToLower(str[i][0]) == glasnie[j]) //Если гласные буква совподает с первой буквой слова, то...
             {
                 printf("%s ", str[i]);
                 break;
             }
 
     printf("\nС согласной:\n");
-    for(int i = 0; i < Size; i++)
-        for(int j = 0; j < 21; j++)
-            if(MyToLower(str[i][0]) == soglasnie[j])
+    for(int i = 0; i < Size; i++) //Цикл для перебора всех элементов массива
+        for(int j = 0; j < 21; j++) //Перебор всех согласных букв
+            if(MyToLower(str[i][0]) == soglasnie[j])  //Если согласная буква совподает с первой буквой слова, то...
             {
                 printf("%s ", str[i]);
                 break;
