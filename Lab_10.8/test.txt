@@ -1,6 +1,2 @@
-author,name,paperCount,price
-author,name,paperCount,price
-author,name,paperCount,price
-author,name,paperCount,price
-author,name,paperCount,price
-author,name,paperCount,price
+popka popka zadiaka,name,0,0
+author,name,0,0
